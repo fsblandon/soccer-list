@@ -7,14 +7,22 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    path: 'teams/:id',
+    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'team-info/:id',
+    loadChildren: () => import('./team-info/team-info.module').then( m => m.TeamInfoPageModule)
+  },
+  {
+    path: 'competitions',
+    loadChildren: () => import('./competitions/competitions.module').then( m => m.CompetitionsPageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
+  }
 ];
 
 @NgModule({

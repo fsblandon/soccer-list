@@ -1,0 +1,20 @@
+<ion-item
+  *ngIf="competition"
+  [routerLink]="'/teams/' + competition.id" [detail]="false">
+  <ion-label class="ion-text-wrap">
+    <span>{{ competition.code }} </span>
+    <h2> name:
+      {{ competition.name }}
+    </h2>
+    <span>
+      <p>Area: {{ competition.area.name }} - {{ competition.area.countryCode}}</p>
+    </span>
+    <span class="date">
+        <ion-note>{{ competition.lastUpdated | date: 'medium'}}</ion-note>
+    </span>
+  </ion-label>
+  <ion-icon
+    name="flag"
+    [ngStyle]="{color: availableCodes.includes(competition.code) ? 'red' : null}">
+  </ion-icon>
+</ion-item>

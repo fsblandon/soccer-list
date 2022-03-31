@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Inbox
+      Competitions
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,16 +10,20 @@
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
-        Inbox
+        Competitions
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+    <app-competitions
+      title="Look Teams"
+      *ngFor="let competition of competitions"
+      [competition]="competition">
+    </app-competitions>
   </ion-list>
 </ion-content>

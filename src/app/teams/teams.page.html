@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        (click)="goBack()">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Teams</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list *ngFor="let team of teams">
+    <ion-item
+      title="Team Information"
+      *ngIf="team"
+      [routerLink]="'/team-info/' + team.id" [detail]="false">
+      <ion-label class="ion-text-wrap">
+        <span>{{ team.tla }} </span>
+        <h2> Team Name:
+          {{ team.name }}
+        </h2>
+        <span>
+          <p>Founded: {{ team.founded }}</p>
+        </span>
+        <span class="date">
+            <ion-note>{{ team.lastUpdated | date: 'medium'}}</ion-note>
+        </span>
+      </ion-label>
+      <ion-icon name="football"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <span slot="start">
+        <h5>Website: </h5>
+      </span>
+      <a slot="end"
+        [href]="team.website"
+        target="_blank">
+        {{team.website}}
+      </a>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+  </ion-list>
+</ion-content>
